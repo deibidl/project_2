@@ -30,7 +30,6 @@ SELECT * FROM all_movies;
 
 CREATE TABLE ratings(
     imdb_id VARCHAR,
-    rating FLOAT NOT NULL,
-    reviewer_id VARCHAR NOT NULL,
-    FOREIGN KEY (imdb_id) REFERENCES all_movies(imdb_id)
+    rating FLOAT,
+    reviewer_id VARCHAR
 );
