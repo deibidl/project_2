@@ -3,11 +3,11 @@
 -- 1. Create All Movies Table
 CREATE TABLE all_movies(
     budget FLOAT NOT NULL,
-    imdb_id VARCHAR(100) NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    release_date VARCHAR(100) NOT NULL,
+    imdb_id VARCHAR NOT NULL,
+    title VARCHAR NOT NULL,
+    release_date VARCHAR,
     revenue FLOAT NOT NULL,
-    production_companies VARCHAR(500) NOT NULL,
+    production_companies VARCHAR NOT NULL,
 	PRIMARY KEY (imdb_id)
 );
 
@@ -16,12 +16,12 @@ CREATE TABLE all_movies(
 SELECT * FROM all_movies;
 
 CREATE TABLE best_movies(
-    release_year VARCHAR(100) NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    production_companies VARCHAR(500) NOT NULL,
-    win VARCHAR(100) NOT NULL, 
-    imdb_id VARCHAR(100) NOT NULL,
-    release_date VARCHAR(100) NOT NULL,
+    release_year VARCHAR NOT NULL,
+    title VARCHAR NOT NULL,
+    production_companies VARCHAR NOT NULL,
+    win VARCHAR NOT NULL, 
+    imdb_id VARCHAR,
+    release_date VARCHAR,
 	FOREIGN KEY (imdb_id) REFERENCES all_movies(imdb_id)
 );
 
@@ -29,8 +29,8 @@ CREATE TABLE best_movies(
 SELECT * FROM all_movies;
 
 CREATE TABLE ratings(
-    imdb_id VARCHAR(100) NOT NULL,
+    imdb_id VARCHAR,
     rating FLOAT NOT NULL,
-    reviewer_id VARCHAR(100) NOT NULL,
-    FOREIGN kEY (imdb_id) REFERENCES all_movies(imdb_id)
+    reviewer_id VARCHAR NOT NULL,
+    FOREIGN KEY (imdb_id) REFERENCES all_movies(imdb_id)
 );
